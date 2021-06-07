@@ -1,6 +1,6 @@
 # ScalarAPI
 ## Declarative approach to some manipulations with scalars.
-### This project is an attempt to make familiar imperative code lazy, more object - oriented and declarative
+### This project is my first attempt to make familiar imperative code lazy, more object - oriented and declarative
 For example:
   * objects which encapsulate result of some boolean operations
   * find extremum value in some collection
