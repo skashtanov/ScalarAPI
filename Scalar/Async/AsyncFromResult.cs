@@ -19,6 +19,7 @@ namespace ScalarAPI.Async
         {
             
         }
+        
         public Task<T> Value()
         {
             return Task.FromResult(_source.Value());
