@@ -1,4 +1,5 @@
-﻿using ScalarAPI.Interfaces;
+﻿using System;
+using ScalarAPI.Interfaces;
 using ScalarAPI.Scalars;
 
 namespace ScalarAPI.Caching
@@ -6,7 +7,7 @@ namespace ScalarAPI.Caching
     public class CachedScalar<T>: IScalar<T>
     {
         private bool _evaluated;
-        private IScalar<T> _scalar;
+        private readonly IScalar<T> _scalar;
         private T _value;
 
         public CachedScalar(IScalar<T> scalar)
@@ -19,7 +20,7 @@ namespace ScalarAPI.Caching
         {
             
         }
-        
+
         public T Value()
         {
             if (_evaluated == false)
