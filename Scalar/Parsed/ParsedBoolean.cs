@@ -1,5 +1,4 @@
-﻿using System;
-using ScalarAPI.Interfaces;
+﻿using ScalarAPI.Interfaces;
 using ScalarAPI.Scalars;
 
 namespace ScalarAPI.Parsed

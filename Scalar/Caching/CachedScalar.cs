@@ -7,16 +7,30 @@ namespace ScalarAPI.Caching
     public class CachedScalar<T>: IScalar<T>
     {
         private bool _evaluated;
-        private readonly IScalar<T> _scalar;
-        private T _value;
+        private readonly Func<IScalar<T>> _producer;
+        private IScalar<T> _scalar;
 
-        public CachedScalar(IScalar<T> scalar)
+        public bool Cached => _evaluated;
+
+        public CachedScalar(Func<IScalar<T>> producer)
         {
-            _scalar = scalar;
+            _producer = producer;
+        }
+
+        public CachedScalar(Func<T> producer) :
+            this(() => new ScalarOf<T>(producer()))
+        {
+            
+        }
+
+        public CachedScalar(IScalar<T> scalar) :
+            this(() => scalar)
+        {
+            
         }
 
         public CachedScalar(T scalar) :
-            this(new ScalarOf<T>(scalar))
+            this(() => new ScalarOf<T>(scalar))
         {
             
         }
@@ -25,11 +39,11 @@ namespace ScalarAPI.Caching
         {
             if (_evaluated == false)
             {
-                _value = _scalar.Value();
+                _scalar = _producer();
                 _evaluated = true;
             }
 
-            return _value;
+            return _scalar.Value();
         }
     }
 }

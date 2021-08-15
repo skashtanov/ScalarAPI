@@ -1,10 +1,8 @@
 ﻿using NUnit.Framework;
-using Sandbox;
 using ScalarAPI.BooleanOperators;
-using ScalarAPI.Interfaces;
 using ScalarAPI.Scalars;
 
-namespace ScalarAPI.Tests
+namespace ScalarAPI.Tests.BooleanOperators
 {
     public class NotTests
     {
