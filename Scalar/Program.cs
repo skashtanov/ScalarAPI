@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace ScalarAPI
+﻿namespace ScalarAPI
 {
     class Program
     {
